@@ -243,3 +243,20 @@ button[type="submit"] {
     justify-content: center;
     align-items: center;
 }
+
+/* Navigation buttons (login/signup) */
+nav a.btn-nav {
+    padding: 8px 18px;
+    border-radius: 8px;
+    background: var(--pink-medium);
+    color: var(--text-light);
+    font-weight: 600;
+    margin-left: 12px;
+    transition: 0.25s;
+}
+
+nav a.btn-nav:hover {
+    background: var(--pink-accent);
+    color: #fff;
+}
+
