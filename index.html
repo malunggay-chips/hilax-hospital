@@ -11,7 +11,7 @@
   <!-- ================= HEADER / NAVIGATION ================= -->
   <header>
       <div class="logo">
-          <img src="" class="logo-img" alt="Hilax Hospital Logo">
+          <img src="hilax-logo.jpg" class="logo-img" alt="Hilax Hospital Logo">
           Hilax General Hospital
       </div>
 
@@ -99,37 +99,9 @@
       <p>© 2025 Hilax General Hospital. All rights reserved.</p>
   </footer>
 
-  <!-- ================= JS TOGGLE SECTIONS / OVERLAYS ================= -->
-  <script>
-  // ===== Show overlay for login/signup =====
-  function showOverlay(sectionId){
-      document.getElementById(sectionId).style.display = 'block';
-      window.scrollTo(0,0);
-  }
-
-  // ===== Close overlay =====
-  function closeOverlay(){
-      document.getElementById('login').style.display = 'none';
-      document.getElementById('signup').style.display = 'none';
-  }
-
-  // ===== Scroll back to home =====
-  function scrollToHome(){
-      closeOverlay();
-      window.scrollTo(0,0);
-  }
-
-  // ===== Switch between login/signup =====
-  document.getElementById('loginForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      alert('Login form submitted (connect to Supabase next)');
-  });
-
-  document.getElementById('signupForm').addEventListener('submit', function(e){
-      e.preventDefault();
-      alert('Signup form submitted (connect to Supabase next)');
-  });
-</script>
+  <!-- ================= LINK EXTERNAL JS ================= -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
+  <script src="scripts.js"></script>
 
 </body>
 </html>
