@@ -45,8 +45,8 @@ header .logo {
 }
 
 header .logo-img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     object-fit: cover;
     border-radius: 50%;
 }
@@ -74,7 +74,7 @@ header nav a.btn-nav:hover {
 .hero {
     position: relative;
     height: 70vh;
-    background-image: url('582221153_3245586005590473_148317653042354864_n.jpg'); /* replace with your image */
+    background-image: url('582221153_3245586005590473_148317653042354864_n.jpg'); /* same image */
     background-size: cover;
     background-position: center;
     display: flex;
@@ -90,7 +90,7 @@ header nav a.btn-nav:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 182, 193, 0.4); /* soft pink overlay */
+    background: rgba(255, 182, 193, 0.4);
 }
 
 .hero-content {
@@ -121,8 +121,8 @@ header nav a.btn-nav:hover {
 
 /* ================= OVERLAY SECTIONS (LOGIN / SIGNUP) ================= */
 .form-section {
-    display: none;            /* hidden initially */
-    position: fixed;          /* overlay full screen */
+    display: none;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -149,7 +149,6 @@ header nav a.btn-nav:hover {
     text-align: center;
 }
 
-/* Form inputs */
 .form-section input,
 .form-section select {
     width: 100%;
@@ -160,7 +159,6 @@ header nav a.btn-nav:hover {
     font-size: 1rem;
 }
 
-/* Buttons */
 .btn-primary {
     width: 100%;
     padding: 10px;
@@ -177,7 +175,6 @@ header nav a.btn-nav:hover {
     background-color: var(--pink-accent);
 }
 
-/* Close button */
 .close-btn {
     position: absolute;
     top: 20px;
