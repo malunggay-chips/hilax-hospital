@@ -1,0 +1,226 @@
+/* ----------------------------------------------------------
+   GLOBAL STYLE & COLOR THEME
+----------------------------------------------------------- */
+
+:root {
+    --pink-light: #ffe6ef;     /* very light pink */
+    --pink-soft: #ffbfd1;      /* soft pastel pink */
+    --pink-medium: #ff9fba;    /* medium pink (still soft) */
+    --pink-accent: #ff8cb1;    /* accent (not dark!) */
+    --text-dark: #333;
+    --text-light: #fff;
+    --bg-light: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Arial", sans-serif;
+}
+
+body {
+    background: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* ----------------------------------------------------------
+   HEADER
+----------------------------------------------------------- */
+
+header {
+    width: 100%;
+    background: var(--pink-soft);
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 200;
+}
+
+header .logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: var(--text-dark);
+    letter-spacing: 1px;
+}
+
+nav a {
+    margin-left: 20px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: var(--pink-accent);
+}
+
+/* ----------------------------------------------------------
+   HERO / HOME SECTION
+----------------------------------------------------------- */
+
+.hero {
+    position: relative;
+    height: 75vh;
+    background: url('hospital-bg.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 211, 224, 0.55); /* soft pink transparent */
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    max-width: 600px;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    color: var(--text-dark);
+    font-weight: bold;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin: 10px 0 25px;
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+    padding: 12px 25px;
+    margin: 0 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: 0.25s;
+}
+
+.btn-primary {
+    background: var(--pink-medium);
+    color: var(--text-light);
+}
+
+.btn-secondary {
+    background: var(--pink-light);
+    color: var(--text-dark);
+}
+
+.btn-primary:hover {
+    background: var(--pink-accent);
+}
+
+.btn-secondary:hover {
+    background: var(--pink-soft);
+}
+
+/* ----------------------------------------------------------
+   ABOUT SECTION
+----------------------------------------------------------- */
+
+.about-section {
+    padding: 60px 15%;
+    background: var(--pink-light);
+}
+
+.about-section h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--text-dark);
+}
+
+.about-box {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.about-box h3 {
+    margin-top: 25px;
+    color: var(--pink-accent);
+}
+
+.about-box p {
+    margin-top: 8px;
+}
+
+/* ----------------------------------------------------------
+   LOGIN & SIGNUP FORMS
+----------------------------------------------------------- */
+
+.form-section {
+    padding: 60px 20%;
+    background: white;
+}
+
+.form-section h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+
+form {
+    background: var(--pink-light);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+form input,
+form select {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid var(--pink-soft);
+    border-radius: 6px;
+}
+
+form input:focus,
+form select:focus {
+    outline: 2px solid var(--pink-medium);
+}
+
+button[type="submit"] {
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* ----------------------------------------------------------
+   RESPONSIVE DESIGN
+----------------------------------------------------------- */
+
+@media (max-width: 900px) {
+    .form-section,
+    .about-section {
+        padding: 40px 10%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    nav a {
+        margin-left: 12px;
+    }
+
+    .hero {
+        height: 60vh;
+    }
+}
