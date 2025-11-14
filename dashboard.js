@@ -1,6 +1,6 @@
 // ================== SUPABASE SETUP ==================
 const supabaseUrl = "YOUR_SUPABASE_URL"; // replace with your Supabase URL
-const supabaseAnonKey = "YOUR_SUPABASE_ANON_KEY"; // replace with your anon key
+const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ1ZG9oamZ4ZWR6YWJ0cGpueG5rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwMjk1ODcsImV4cCI6MjA3ODYwNTU4N30.K1_dRmW_cWGvpvErwYa2uKtAbn3b2BqLD1n7QwLmFh8"; // replace with your anon key
 const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
 // ================== DASHBOARD FUNCTIONS ==================
