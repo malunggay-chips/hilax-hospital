@@ -10,17 +10,17 @@
 
     <!-- ================= HEADER / NAVIGATION ================= -->
     <header>
-    <div class="logo">
-        <img src="582221153_3245586005590473_148317653042354864_n.jpg" class="logo-img">
-        Hilax General Hospital
-    </div>
+        <div class="logo">
+            <img src="logo-placeholder.png" class="logo-img">
+            Hilax General Hospital
+        </div>
 
-    <nav>
-        <a href="#" onclick="showSection('home')">Home</a>
-        <a href="#" class="btn-nav" onclick="showSection('login')">Login</a>
-        <a href="#" class="btn-nav" onclick="showSection('signup')">Create Account</a>
-    </nav>
-</header>
+        <nav>
+            <a href="#" onclick="scrollToHome()">Home</a>
+            <a href="#" class="btn-nav" onclick="showSection('login')">Login</a>
+            <a href="#" class="btn-nav" onclick="showSection('signup')">Create Account</a>
+        </nav>
+    </header>
 
     <!-- ================= HERO / HOME SECTION ================= -->
     <section id="home" class="hero">
@@ -31,12 +31,11 @@
         </div>
     </section>
 
-    <!-- ================= ABOUT SECTION (HISTORY / MISSION / VISION) ================= -->
-    <section id="about" class="about-section">
+    <!-- ================= ABOUT SECTION ================= -->
+    <section id="about" class="about-section" style="display:none;">
         <h2>About Hilax General Hospital</h2>
 
         <div class="about-box">
-
             <h3>Hilax General Hospital — History</h3>
             <p>
                 Founded in 1998, Hilax General Hospital began as a small community clinic with only four physicians 
@@ -58,7 +57,6 @@
                 To become a leading regional medical center recognized for patient-focused service, advanced technology, 
                 and a collaborative healthcare workforce dedicated to saving lives and improving community well-being.
             </p>
-
         </div>
     </section>
 
@@ -107,10 +105,21 @@
 
     <!-- ================= JS TOGGLE SECTIONS ================= -->
     <script>
+        // Show/hide login, signup, about sections
         function showSection(sectionId){
-            const sections = ['home','about','login','signup'];
+            const sections = ['login','signup','about'];
             sections.forEach(id => {
-                document.getElementById(id).style.display = (id === sectionId || id === 'home' && sectionId==='home') ? 'block' : 'none';
+                document.getElementById(id).style.display = (id === sectionId) ? 'block' : 'none';
+            });
+            window.scrollTo(0,0);
+        }
+
+        // Scroll back to hero/home section
+        function scrollToHome(){
+            // Hide other sections
+            const sections = ['login','signup','about'];
+            sections.forEach(id => {
+                document.getElementById(id).style.display = 'none';
             });
             window.scrollTo(0,0);
         }
