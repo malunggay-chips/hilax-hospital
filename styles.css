@@ -224,3 +224,22 @@ button[type="submit"] {
         height: 60vh;
     }
 }
+
+/* Logo Image */
+.logo-img {
+    height: 45px;
+    width: 45px;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+/* Hero Background Placeholder */
+.hero {
+    position: relative;
+    height: 75vh;
+    background: url('placeholder-bg.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
