@@ -8,8 +8,28 @@
 <body>
 
 <header>
-    <h1>Hilax General Hospital</h1>
+    <div class="logo">
+        <img src="logo-placeholder.png" class="logo-img">
+        Hilax General Hospital
+    </div>
+
+    <nav>
+        <a href="#" onclick="showSection('home')">Home</a>
+        <a href="#" onclick="showSection('login')">Login</a>
+        <a href="#" onclick="showSection('signup')">Create Account</a>
+    </nav>
 </header>
+
+<!-- HOME / HERO SECTION -->
+<section id="home" class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+        <h1>Welcome to Hilax General Hospital</h1>
+        <p>Your partner in compassionate and modern healthcare.</p>
+        <button class="btn-primary" onclick="showSection('login')">Login</button>
+        <button class="btn-secondary" onclick="showSection('signup')">Create Account</button>
+    </div>
+</section>
 
 <section id="signup-box">
     <h2>Create Account</h2>
