@@ -1,129 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hilax Hospital</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hilax Hospital</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- ================= HEADER / NAVIGATION ================= -->
-    <header>
-        <div class="logo">
-            <img src="logo-placeholder.png" class="logo-img">
-            Hilax General Hospital
-        </div>
+  <!-- ================= HEADER / NAVIGATION ================= -->
+  <header>
+      <div class="logo">
+          <img src="logo-placeholder.jpg" class="logo-img">
+          Hilax General Hospital
+      </div>
 
-        <nav>
-            <a href="#" onclick="scrollToHome()">Home</a>
-            <a href="#" class="btn-nav" onclick="showSection('login')">Login</a>
-            <a href="#" class="btn-nav" onclick="showSection('signup')">Create Account</a>
-        </nav>
-    </header>
+      <nav>
+          <a href="#" onclick="scrollToHome()">Home</a>
+          <a href="#" class="btn-nav" onclick="showOverlay('login')">Login</a>
+          <a href="#" class="btn-nav" onclick="showOverlay('signup')">Create Account</a>
+      </nav>
+  </header>
 
-    <!-- ================= HERO / HOME SECTION ================= -->
-    <section id="home" class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1>Welcome to Hilax General Hospital</h1>
-            <p>Your partner in compassionate and modern healthcare.</p>
-        </div>
-    </section>
+  <!-- ================= HERO / HOME SECTION ================= -->
+  <section id="home" class="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+          <h1>Welcome to Hilax General Hospital</h1>
+          <p>Your partner in compassionate and modern healthcare.</p>
+      </div>
+  </section>
 
-    <!-- ================= ABOUT SECTION ================= -->
-    <section id="about" class="about-section" style="display:none;">
-        <h2>About Hilax General Hospital</h2>
+  <!-- ================= ABOUT SECTION ================= -->
+  <section id="about" class="about-section" style="display:none;">
+      <h2>About Hilax General Hospital</h2>
+      <div class="about-box">
+          <h3>Hilax General Hospital — History</h3>
+          <p>
+              Founded in 1998, Hilax General Hospital began as a small community clinic with only four physicians 
+              and limited facilities. Over the years, the hospital expanded into a full-service medical center to 
+              meet the growing needs of the region. Today, Hilax General Hospital provides multidisciplinary care, 
+              diagnostic imaging, surgical services, and emergency support. The institution continues to modernize 
+              its systems, embracing digital record-keeping and patient-centered innovation to ensure faster, safer, 
+              and more efficient service delivery.
+          </p>
 
-        <div class="about-box">
-            <h3>Hilax General Hospital — History</h3>
-            <p>
-                Founded in 1998, Hilax General Hospital began as a small community clinic with only four physicians 
-                and limited facilities. Over the years, the hospital expanded into a full-service medical center to 
-                meet the growing needs of the region. Today, Hilax General Hospital provides multidisciplinary care, 
-                diagnostic imaging, surgical services, and emergency support. The institution continues to modernize 
-                its systems, embracing digital record-keeping and patient-centered innovation to ensure faster, safer, 
-                and more efficient service delivery.
-            </p>
+          <h3>Mission Statement</h3>
+          <p>
+              To deliver compassionate, quality healthcare to every patient through excellence, integrity, and 
+              continuous improvement — ensuring that every individual receives timely and effective medical care.
+          </p>
 
-            <h3>Mission Statement</h3>
-            <p>
-                To deliver compassionate, quality healthcare to every patient through excellence, integrity, and 
-                continuous improvement — ensuring that every individual receives timely and effective medical care.
-            </p>
+          <h3>Vision Statement</h3>
+          <p>
+              To become a leading regional medical center recognized for patient-focused service, advanced technology, 
+              and a collaborative healthcare workforce dedicated to saving lives and improving community well-being.
+          </p>
+      </div>
+  </section>
 
-            <h3>Vision Statement</h3>
-            <p>
-                To become a leading regional medical center recognized for patient-focused service, advanced technology, 
-                and a collaborative healthcare workforce dedicated to saving lives and improving community well-being.
-            </p>
-        </div>
-    </section>
+  <!-- ================= LOGIN OVERLAY ================= -->
+  <section id="login" class="form-section">
+      <button type="button" class="close-btn" onclick="closeOverlay()">X</button>
+      <form id="loginForm">
+          <h2>Login</h2>
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <button type="submit" class="btn-primary">Login</button>
+      </form>
+  </section>
 
-    <!-- ================= LOGIN SECTION (HIDDEN BY DEFAULT) ================= -->
-    <section id="login" class="form-section" style="display:none;">
-        <h2>Login</h2>
+  <!-- ================= SIGNUP OVERLAY ================= -->
+  <section id="signup" class="form-section">
+      <button type="button" class="close-btn" onclick="closeOverlay()">X</button>
+      <form id="signupForm">
+          <h2>Create an Account</h2>
+          <input type="text" placeholder="Full Name" required>
+          <input type="email" placeholder="Email" required>
+          <input type="password" placeholder="Password" required>
+          <label for="role">Select Your Role:</label>
+          <select id="role" required>
+              <option value="" disabled selected>Select role</option>
+              <option value="patient">Patient</option>
+              <option value="physician">Physician</option>
+              <option value="nurse">Nurse</option>
+              <option value="pharmacist">Pharmacist</option>
+              <option value="medtech">MedTech</option>
+              <option value="radtech">RadTech</option>
+              <option value="hr">HR / Admin</option>
+          </select>
+          <input type="text" placeholder="Patient Number or Staff Number" required>
+          <button type="submit" class="btn-primary">Sign Up</button>
+      </form>
+  </section>
 
-        <form id="loginForm">
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
-            <button type="submit" class="btn-primary">Login</button>
-        </form>
-    </section>
+  <!-- ================= FOOTER ================= -->
+  <footer>
+      <p>© 2025 Hilax General Hospital. All rights reserved.</p>
+  </footer>
 
-    <!-- ================= SIGN UP SECTION (HIDDEN BY DEFAULT) ================= -->
-    <section id="signup" class="form-section" style="display:none;">
-        <h2>Create an Account</h2>
+  <!-- ================= JS TOGGLE SECTIONS / OVERLAYS ================= -->
+  <script>
+      function showOverlay(sectionId){
+          document.getElementById(sectionId).style.display = 'block';
+          window.scrollTo(0,0);
+      }
 
-        <form id="signupForm">
-            <input type="text" placeholder="Full Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="password" placeholder="Password" required>
+      function closeOverlay(){
+          document.getElementById('login').style.display = 'none';
+          document.getElementById('signup').style.display = 'none';
+      }
 
-            <label for="role">Select Your Role:</label>
-            <select id="role" required>
-                <option value="" disabled selected>Select role</option>
-                <option value="patient">Patient</option>
-                <option value="physician">Physician</option>
-                <option value="nurse">Nurse</option>
-                <option value="pharmacist">Pharmacist</option>
-                <option value="medtech">MedTech</option>
-                <option value="radtech">RadTech</option>
-                <option value="hr">HR / Admin</option>
-            </select>
-
-            <input type="text" placeholder="Patient Number or Staff Number" required>
-
-            <button type="submit" class="btn-primary">Sign Up</button>
-        </form>
-    </section>
-
-    <!-- ================= FOOTER ================= -->
-    <footer>
-        <p>© 2025 Hilax General Hospital. All rights reserved.</p>
-    </footer>
-
-    <!-- ================= JS TOGGLE SECTIONS ================= -->
-    <script>
-        // Show/hide login, signup, about sections
-        function showSection(sectionId){
-            const sections = ['login','signup','about'];
-            sections.forEach(id => {
-                document.getElementById(id).style.display = (id === sectionId) ? 'block' : 'none';
-            });
-            window.scrollTo(0,0);
-        }
-
-        // Scroll back to hero/home section
-        function scrollToHome(){
-            // Hide other sections
-            const sections = ['login','signup','about'];
-            sections.forEach(id => {
-                document.getElementById(id).style.display = 'none';
-            });
-            window.scrollTo(0,0);
-        }
-    </script>
+      function scrollToHome(){
+          closeOverlay();
+          document.getElementById('about').style.display = 'none';
+          window.scrollTo(0,0);
+      }
+  </script>
 
 </body>
 </html>
