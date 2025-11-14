@@ -101,21 +101,35 @@
 
   <!-- ================= JS TOGGLE SECTIONS / OVERLAYS ================= -->
   <script>
-      function showOverlay(sectionId){
-          document.getElementById(sectionId).style.display = 'block';
-          window.scrollTo(0,0);
-      }
+  // ===== Show overlay for login/signup =====
+  function showOverlay(sectionId){
+      document.getElementById(sectionId).style.display = 'block';
+      window.scrollTo(0,0);
+  }
 
-      function closeOverlay(){
-          document.getElementById('login').style.display = 'none';
-          document.getElementById('signup').style.display = 'none';
-      }
+  // ===== Close overlay =====
+  function closeOverlay(){
+      document.getElementById('login').style.display = 'none';
+      document.getElementById('signup').style.display = 'none';
+  }
 
-      function scrollToHome(){
-          closeOverlay();
-          window.scrollTo(0,0);
-      }
-  </script>
+  // ===== Scroll back to home =====
+  function scrollToHome(){
+      closeOverlay();
+      window.scrollTo(0,0);
+  }
+
+  // ===== Switch between login/signup =====
+  document.getElementById('loginForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Login form submitted (connect to Supabase next)');
+  });
+
+  document.getElementById('signupForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Signup form submitted (connect to Supabase next)');
+  });
+</script>
 
 </body>
 </html>
