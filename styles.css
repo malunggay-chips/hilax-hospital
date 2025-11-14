@@ -1,286 +1,202 @@
-/* ----------------------------------------------------------
-   GLOBAL STYLE & COLOR THEME
------------------------------------------------------------ */
-
-:root {
-    --pink-light: #ffe6ef;     /* very light pink */
-    --pink-soft: #ffbfd1;      /* soft pastel pink */
-    --pink-medium: #ff9fba;    /* medium pink (still soft) */
-    --pink-accent: #ff8cb1;    /* accent (not dark!) */
-    --text-dark: #333;
-    --text-light: #fff;
-    --bg-light: #fff;
-}
-
+/* ================= RESET ================= */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: "Arial", sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* ================= VARIABLES ================= */
+:root {
+    --pink-light: #ffdee9;
+    --pink-medium: #ffb6c1;
+    --pink-accent: #ff8da1;
+    --text-dark: #333;
+    --white: #fff;
+}
+
+/* ================= BODY ================= */
 body {
-    background: var(--bg-light);
+    background-color: var(--white);
     color: var(--text-dark);
-    line-height: 1.6;
 }
 
-/* ----------------------------------------------------------
-   HEADER
------------------------------------------------------------ */
-
+/* ================= HEADER / NAV ================= */
 header {
     width: 100%;
-    background: var(--pink-soft);
-    padding: 18px 30px;
+    padding: 15px 30px;
+    background-color: var(--pink-light);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     position: sticky;
     top: 0;
-    z-index: 200;
+    z-index: 500;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 header .logo {
-    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     font-weight: bold;
+    font-size: 1.2rem;
     color: var(--text-dark);
-    letter-spacing: 1px;
 }
 
-nav a {
-    margin-left: 20px;
+header .logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+header nav a {
     text-decoration: none;
-    color: var(--text-dark);
+    margin-left: 20px;
     font-weight: 600;
+    color: var(--text-dark);
 }
 
-nav a:hover {
-    color: var(--pink-accent);
+header nav a.btn-nav {
+    background-color: var(--pink-medium);
+    color: var(--white);
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
 }
 
-/* ----------------------------------------------------------
-   HERO / HOME SECTION
------------------------------------------------------------ */
+header nav a.btn-nav:hover {
+    background-color: var(--pink-accent);
+}
 
+/* ================= HERO ================= */
 .hero {
     position: relative;
-    height: 75vh;
-    background: url('hospital-bg.jpg') center/cover no-repeat;
+    height: 70vh;
+    background-image: url('background-placeholder.jpg');
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    color: var(--white);
 }
 
 .hero-overlay {
     position: absolute;
-    inset: 0;
-    background: rgba(255, 211, 224, 0.55); /* soft pink transparent */
-}
-
-.hero-content {
-    position: relative;
-    text-align: center;
-    max-width: 600px;
-}
-
-.hero-content h1 {
-    font-size: 2.8rem;
-    color: var(--text-dark);
-    font-weight: bold;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin: 10px 0 25px;
-}
-
-/* Buttons */
-.btn-primary,
-.btn-secondary {
-    padding: 12px 25px;
-    margin: 0 8px;
-    border: none;
-    cursor: pointer;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: 0.25s;
-}
-
-.btn-primary {
-    background: var(--pink-medium);
-    color: var(--text-light);
-}
-
-.btn-secondary {
-    background: var(--pink-light);
-    color: var(--text-dark);
-}
-
-.btn-primary:hover {
-    background: var(--pink-accent);
-}
-
-.btn-secondary:hover {
-    background: var(--pink-soft);
-}
-
-/* ----------------------------------------------------------
-   ABOUT SECTION
------------------------------------------------------------ */
-
-.about-section {
-    padding: 60px 15%;
-    background: var(--pink-light);
-}
-
-.about-section h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: var(--text-dark);
-}
-
-.about-box {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-}
-
-.about-box h3 {
-    margin-top: 25px;
-    color: var(--pink-accent);
-}
-
-.about-box p {
-    margin-top: 8px;
-}
-
-/* ----------------------------------------------------------
-   LOGIN & SIGNUP FORMS
------------------------------------------------------------ */
-
-.form-section {
-    padding: 60px 20%;
-    background: white;
-}
-
-.form-section h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    color: var(--text-dark);
-}
-
-form {
-    background: var(--pink-light);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-form input,
-form select {
-    width: 100%;
-    padding: 12px;
-    margin: 12px 0;
-    border: 1px solid var(--pink-soft);
-    border-radius: 6px;
-}
-
-form input:focus,
-form select:focus {
-    outline: 2px solid var(--pink-medium);
-}
-
-button[type="submit"] {
-    margin-top: 10px;
-    width: 100%;
-}
-
-/* ----------------------------------------------------------
-   RESPONSIVE DESIGN
------------------------------------------------------------ */
-
-@media (max-width: 900px) {
-    .form-section,
-    .about-section {
-        padding: 40px 10%;
-    }
-
-    .hero-content h1 {
-        font-size: 2.2rem;
-    }
-}
-
-@media (max-width: 600px) {
-    nav a {
-        margin-left: 12px;
-    }
-
-    .hero {
-        height: 60vh;
-    }
-}
-
-/* Logo Image */
-.logo-img {
-    height: 45px;
-    width: 45px;
-    object-fit: contain;
-    vertical-align: middle;
-    margin-right: 10px;
-}
-
-/* Hero Background Placeholder */
-.hero {
-    position: relative;
-    height: 75vh;
-    background: url('582221153_3245586005590473_148317653042354864_n.jpg') center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Navigation buttons (login/signup) */
-nav a.btn-nav {
-    padding: 8px 18px;
-    border-radius: 8px;
-    background: var(--pink-medium);
-    color: var(--text-light);
-    font-weight: 600;
-    margin-left: 12px;
-    transition: 0.25s;
-}
-
-nav a.btn-nav:hover {
-    background: var(--pink-accent);
-    color: #fff;
-}
-
-/* Hidden section style (login/signup) */
-.form-section {
-    display: none;        /* hidden by default */
-    position: fixed;      /* overlay the entire viewport */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(255, 255, 255, 0.95); /* semi-transparent white overlay */
-    z-index: 1000;        /* on top of everything */
-    overflow-y: auto;     /* scroll if content is tall */
+    background: rgba(255, 182, 193, 0.4); /* pink overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+}
+
+/* ================= ABOUT ================= */
+.about-section {
+    padding: 50px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-box h3 {
+    margin-top: 20px;
+    color: var(--pink-medium);
+}
+
+/* ================= OVERLAY SECTIONS (LOGIN / SIGNUP) ================= */
+.form-section {
+    display: none;            /* hidden initially */
+    position: fixed;          /* overlay full screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.95);
+    z-index: 1000;
+    overflow-y: auto;
     padding: 60px 20px;
     box-sizing: border-box;
 }
 
-/* Form styling inside overlay */
 .form-section form {
     max-width: 400px;
-    margin: 0 auto;
-    background: #fff;
+    margin: 50px auto;
+    background: var(--white);
     padding: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.form-section h2 {
+    margin-bottom: 20px;
+    color: var(--pink-medium);
+    text-align: center;
+}
+
+/* Form inputs */
+.form-section input,
+.form-section select {
+    width: 100%;
+    padding: 10px 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+/* Buttons */
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--pink-medium);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--pink-accent);
+}
+
+/* Close button */
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--pink-medium);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    padding: 20px;
+    text-align: center;
+    background-color: var(--pink-light);
+    color: var(--text-dark);
+    margin-top: 50px;
 }
