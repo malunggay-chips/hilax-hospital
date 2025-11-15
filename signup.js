@@ -1,79 +1,94 @@
-// signup.js
-// Standalone signup flow using Supabase Auth + custom backend linking logic
+// ================== SUPABASE SETUP ==================
+const supabaseUrl = "https://fudohjfxedzabtpjnxnk.supabase.co";
+const supabaseAnonKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ1ZG9oamZ4ZWR6YWJ0cGpueG5rIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMwMjk1ODcsImV4cCI6MjA3ODYwNTU4N30.K1_dRmW_cWGvpvErwYa2uKtAbn3b2BqLD1n7QwLmFh8";
+const supabase = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
-import { createClient } from '@supabase/supabase-js';
+// ===== LOGIN =====
+document.getElementById('loginForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+    const email = document.getElementById('login-email').value;
+    const password = document.getElementById('login-password').value;
 
-// -------------------------------------------------------
-// 1. Supabase Client Setup
-// -------------------------------------------------------
-const supabaseUrl = "YOUR_SUPABASE_URL";
-const supabaseKey = "YOUR_SUPABASE_ANON_KEY"; // keep this safe in frontend
-const supabase = createClient(supabaseUrl, supabaseKey);
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 
-// -------------------------------------------------------
-// 2. Main Signup Function
-// -------------------------------------------------------
-export async function registerUser({ email, password, full_name, role, number }) {
-  try {
-    // -------------------------------------------------------
-    // Step 1 — Create Auth Account
-    // -------------------------------------------------------
+    if(error) {
+        alert('Login failed: ' + error.message);
+        return;
+    }
+
+    // Fetch role from users table
+    const { data: userData, error: userError } = await supabase
+        .from('users')
+        .select('*')
+        .eq('email', email)
+        .single();
+
+    if(userError){
+        alert('Error fetching user info');
+        return;
+    }
+
+    // Redirect based on role
+    const role = userData.role;
+    if(role === 'hr') window.location.href = 'dashboard.html';
+    else window.location.href = 'dashboard.html'; // for demo, same dashboard but show/hide sections
+});
+
+// ===== SIGNUP =====
+document.getElementById('signupForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+    const full_name = document.getElementById('signup-name').value;
+    const email = document.getElementById('signup-email').value;
+    const password = document.getElementById('signup-password').value;
+    const role = document.getElementById('role').value;
+    const linked_number = document.getElementById('linked-number').value;
+
+    // Create Supabase Auth user
     const { data: authData, error: authError } = await supabase.auth.signUp({
-      email,
-      password
+        email,
+        password
     });
 
-    if (authError) {
-      return { success: false, message: "Auth Error: " + authError.message };
+    if(authError){
+        alert('Signup failed: ' + authError.message);
+        return;
     }
 
-    // -------------------------------------------------------
-    // Step 2 — Insert into Users Table via SQL Function
-    // -------------------------------------------------------
-    const { data: linkData, error: linkError } = await supabase.rpc(
-      "signup_user",
-      {
-        p_email: email,
-        p_full_name: full_name,
-        p_role: role,
-        p_number: number
-      }
-    );
-
-    if (linkError) {
-      // If linking fails, rollback by deleting the auth user
-      await supabase.auth.admin.deleteUser(authData.user.id);
-
-      return {
-        success: false,
-        message: "Linking Error: " + linkError.message
-      };
+    // Get linked ID from pre-registered table
+    let linked_id = null;
+    if(role === 'patient'){
+        const { data: patientData } = await supabase
+            .from('pre_registered_patients')
+            .select('*')
+            .eq('patient_number', linked_number)
+            .single();
+        linked_id = patientData.patient_id;
+    } else {
+        const { data: staffData } = await supabase
+            .from('pre_registered_staff')
+            .select('*')
+            .eq('staff_number', linked_number)
+            .single();
+        linked_id = staffData.staff_id;
     }
 
-    // Success
-    return {
-      success: true,
-      message: "Account created successfully.",
-      user_id: linkData
-    };
-  } catch (err) {
-    return { success: false, message: "Unexpected Error: " + err.message };
-  }
-}
+    // Insert into users table
+    const { data: userData, error: userError } = await supabase
+        .from('users')
+        .insert([{
+            id: authData.user.id,
+            email,
+            full_name,
+            role,
+            linked_id,
+            linked_number
+        }]);
 
-// -------------------------------------------------------
-// 3. Example Usage (remove if not needed)
-// -------------------------------------------------------
-/*
-(async () => {
-  const result = await registerUser({
-    email: "alice@example.com",
-    password: "StrongPass123!",
-    full_name: "Alice Johnson",
-    role: "hr",
-    number: "ST-0001"
-  });
+    if(userError){
+        alert('Error creating user: ' + userError.message);
+        return;
+    }
 
-  console.log(result);
-})();
-*/
+    alert('Signup successful! You can now log in.');
+    closeOverlay();
+});
