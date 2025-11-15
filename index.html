@@ -8,10 +8,10 @@
 </head>
 <body>
 
-  <!-- ================= HEADER / NAVIGATION ================= -->
+  <!-- HEADER / NAV -->
   <header>
       <div class="logo">
-          <img src="hilax-logo.jpg" class="logo-img" alt="Hilax Hospital Logo">
+          <img src="582221153_3245586005590473_148317653042354864_n.jpg" class="logo-img" alt="Hilax Hospital Logo">
           Hilax General Hospital
       </div>
 
@@ -22,7 +22,7 @@
       </nav>
   </header>
 
-  <!-- ================= HERO / HOME SECTION ================= -->
+  <!-- HERO / HOME -->
   <section id="home" class="hero">
       <div class="hero-overlay"></div>
       <div class="hero-content">
@@ -31,7 +31,7 @@
       </div>
   </section>
 
-  <!-- ================= ABOUT SECTION ================= -->
+  <!-- ABOUT -->
   <section id="about" class="about-section">
       <h2>About Hilax General Hospital</h2>
       <div class="about-box">
@@ -59,53 +59,60 @@
       </div>
   </section>
 
-  <!-- ================= LOGIN OVERLAY ================= -->
+  <!-- LOGIN -->
   <section id="login" class="form-section">
       <button type="button" class="close-btn" onclick="closeOverlay()">X</button>
       <form id="loginForm">
           <h2>Login</h2>
-          <input type="email" placeholder="Email" required>
-          <input type="password" placeholder="Password" required>
+          <input type="email" id="login-email" placeholder="Email" required>
+          <input type="password" id="login-password" placeholder="Password" required>
           <button type="submit" class="btn-primary">Login</button>
       </form>
   </section>
 
-  <!-- ================= SIGNUP OVERLAY ================= -->
+  <!-- SIGNUP -->
   <section id="signup" class="form-section">
       <button type="button" class="close-btn" onclick="closeOverlay()">X</button>
-      <form id="signup-form">
-  <h2>Create an Account</h2>
-  <input type="text" id="full_name" placeholder="Full Name" required>
-  <input type="email" id="email" placeholder="Email" required>
-  <input type="password" id="password" placeholder="Password" required>
-  
-  <label for="role">Select Your Role:</label>
-  <select id="role" required>
-      <option value="" disabled selected>Select role</option>
-      <option value="patient">Patient</option>
-      <option value="physician">Physician</option>
-      <option value="nurse">Nurse</option>
-      <option value="pharmacist">Pharmacist</option>
-      <option value="medtech">MedTech</option>
-      <option value="radtech">RadTech</option>
-      <option value="hr">HR / Admin</option>
-  </select>
-
-  <input type="text" id="number" placeholder="Patient Number or Staff Number" required>
-
-  <button type="submit" class="btn-primary">Sign Up</button>
-</form>
+      <form id="signupForm">
+          <h2>Create an Account</h2>
+          <input type="text" id="signup-name" placeholder="Full Name" required>
+          <input type="email" id="signup-email" placeholder="Email" required>
+          <input type="password" id="signup-password" placeholder="Password" required>
+          <label for="role">Select Your Role:</label>
+          <select id="role" required>
+              <option value="" disabled selected>Select role</option>
+              <option value="patient">Patient</option>
+              <option value="physician">Physician</option>
+              <option value="nurse">Nurse</option>
+              <option value="pharmacist">Pharmacist</option>
+              <option value="medtech">MedTech</option>
+              <option value="radtech">RadTech</option>
+              <option value="hr">HR / Admin</option>
+          </select>
+          <input type="text" id="linked-number" placeholder="Patient Number or Staff Number" required>
+          <button type="submit" class="btn-primary">Sign Up</button>
+      </form>
   </section>
 
-  <!-- ================= FOOTER ================= -->
   <footer>
       <p>© 2025 Hilax General Hospital. All rights reserved.</p>
   </footer>
 
-  <!-- ================= LINK EXTERNAL JS ================= -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/supabase.min.js"></script>
-  <script src="scripts.js"></script>
-  <script type="module" src="signup.js"></script>
+  <script src="signup.js"></script>
+  <script>
+      function showOverlay(sectionId){
+          document.getElementById(sectionId).style.display = 'block';
+          window.scrollTo(0,0);
+      }
+      function closeOverlay(){
+          document.getElementById('login').style.display = 'none';
+          document.getElementById('signup').style.display = 'none';
+      }
+      function scrollToHome(){
+          closeOverlay();
+          window.scrollTo(0,0);
+      }
+  </script>
 
 </body>
 </html>
