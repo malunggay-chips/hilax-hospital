@@ -73,25 +73,28 @@
   <!-- ================= SIGNUP OVERLAY ================= -->
   <section id="signup" class="form-section">
       <button type="button" class="close-btn" onclick="closeOverlay()">X</button>
-      <form id="signupForm">
-          <h2>Create an Account</h2>
-          <input type="text" placeholder="Full Name" required>
-          <input type="email" placeholder="Email" required>
-          <input type="password" placeholder="Password" required>
-          <label for="role">Select Your Role:</label>
-          <select id="role" required>
-              <option value="" disabled selected>Select role</option>
-              <option value="patient">Patient</option>
-              <option value="physician">Physician</option>
-              <option value="nurse">Nurse</option>
-              <option value="pharmacist">Pharmacist</option>
-              <option value="medtech">MedTech</option>
-              <option value="radtech">RadTech</option>
-              <option value="hr">HR / Admin</option>
-          </select>
-          <input type="text" placeholder="Patient Number or Staff Number" required>
-          <button type="submit" class="btn-primary">Sign Up</button>
-      </form>
+      <form id="signup-form">
+  <h2>Create an Account</h2>
+  <input type="text" id="full_name" placeholder="Full Name" required>
+  <input type="email" id="email" placeholder="Email" required>
+  <input type="password" id="password" placeholder="Password" required>
+  
+  <label for="role">Select Your Role:</label>
+  <select id="role" required>
+      <option value="" disabled selected>Select role</option>
+      <option value="patient">Patient</option>
+      <option value="physician">Physician</option>
+      <option value="nurse">Nurse</option>
+      <option value="pharmacist">Pharmacist</option>
+      <option value="medtech">MedTech</option>
+      <option value="radtech">RadTech</option>
+      <option value="hr">HR / Admin</option>
+  </select>
+
+  <input type="text" id="number" placeholder="Patient Number or Staff Number" required>
+
+  <button type="submit" class="btn-primary">Sign Up</button>
+</form>
   </section>
 
   <!-- ================= FOOTER ================= -->
