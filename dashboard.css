@@ -1,9 +1,0 @@
-body, html { margin:0; padding:0; font-family: Arial,sans-serif; }
-header { display:flex; justify-content:space-between; align-items:center; padding:1rem 2rem; background:#ffe6f0; }
-header .logo { display:flex; align-items:center; color:#d63384; font-weight:bold; }
-header .logo-img { height:40px; margin-right:10px; }
-nav button { background:#ff66a3; color:white; border:none; padding:0.5rem 1rem; border-radius:6px; cursor:pointer; }
-nav button:hover { background:#d63384; }
-
-.dashboard-section { display:none; padding:2rem; background:#fff0f6; margin:1rem; border-radius:6px; }
-.dashboard-section h2 { color:#d63384; }
